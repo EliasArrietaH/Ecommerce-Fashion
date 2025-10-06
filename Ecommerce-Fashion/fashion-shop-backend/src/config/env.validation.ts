@@ -46,7 +46,7 @@ class EnvironmentVariables {
   JWT_SECRET!: string;
 
   @IsString()
-  JWT_EXPIRATION!: string;
+  JWT_EXPIRES_IN!: string;
 
   // SMTP
   @IsString()
@@ -66,7 +66,10 @@ class EnvironmentVariables {
   // Frontend
   @IsString()
   FRONTEND_URL!: string;
+
+  
 }
+
 
 export function validate(config: Record<string, unknown>) {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
@@ -86,4 +89,5 @@ export function validate(config: Record<string, unknown>) {
   }
 
   return validatedConfig;
+
 }

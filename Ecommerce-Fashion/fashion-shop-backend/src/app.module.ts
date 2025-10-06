@@ -1,35 +1,37 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import databaseConfig from './config/database.config';
+import { APP_GUARD } from '@nestjs/core';
 import { validate } from './config/env.validation';
+import getDatabaseConfig from './config/database.config';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { RolesGuard } from './guards/roles.guard';
 
 @Module({
   imports: [
-    // Configuración global CON VALIDACIÓN
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [databaseConfig],
-      envFilePath: '.env',
-      validate, // 🔥 Valida el .env al iniciar la app
+      validate,
     }),
-
-    // TypeORM con configuración asíncrona ESTRICTA
     TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService): TypeOrmModuleOptions => {
-        const dbConfig = configService.get<TypeOrmModuleOptions>('database');
-        
-        if (!dbConfig) {
-          throw new Error('Database configuration not found');
-        }
-
-        return dbConfig;
-      },
+      useFactory: getDatabaseConfig,
     }),
+    UsersModule,
+    AuthModule,  // ← AGREGAR
   ],
-  controllers: [],
-  providers: [],
+  providers: [
+    // ← AGREGAR Guards globales
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+  ],
+  
 })
 export class AppModule {}
