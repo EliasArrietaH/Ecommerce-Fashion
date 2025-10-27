@@ -7,7 +7,6 @@ export default function Navbar() {
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/Frame 168.png"
@@ -16,12 +15,8 @@ export default function Navbar() {
               height={40}
               className="w-70 h-10"
             />
-            {/* <span className="text-xl font-bold text-gray-900">
-              Fashion Shop
-            </span> */}
           </Link>
 
-          {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
@@ -49,7 +44,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Icons */}
           <div className="flex items-center space-x-4">
             <Link
               href="/profile"

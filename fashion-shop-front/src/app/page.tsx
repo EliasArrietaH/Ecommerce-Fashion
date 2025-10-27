@@ -106,7 +106,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
       <section className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
         {/* Background Image */}
         <Image
@@ -116,9 +115,6 @@ export default function Home() {
           className="object-cover"
           priority
         />
-
-        {/* Overlay opcional para mejorar legibilidad */}
-        {/* <div className="absolute inset-0 bg-black bg-opacity-5"></div> */}
 
         {/* Content Card Flotante */}
         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-end">

@@ -13,7 +13,6 @@ export default function Footer() {
             <p className="text-gray-600 text-sm">Store address</p>
           </div>
 
-          {/* Links Section */}
           <div>
             <h4 className="text-sm font-semibold text-gray-900 mb-4">Links</h4>
             <ul className="space-y-2">
@@ -52,7 +51,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Help Section */}
           <div>
             <h4 className="text-sm font-semibold text-gray-900 mb-4">Help</h4>
             <ul className="space-y-2">
@@ -75,7 +73,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter Section */}
           <div>
             <h4 className="text-sm font-semibold text-gray-900 mb-4">
               Newsletter
@@ -93,7 +90,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-sm text-gray-600">
             2025 Fashion Shop. All rights reserved
