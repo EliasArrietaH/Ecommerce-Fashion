@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { RolesGuard } from './guards/roles.guard';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { RolesGuard } from './guards/roles.guard';
       useFactory: getDatabaseConfig,
     }),
     UsersModule,
-    AuthModule, // ← AGREGAR
+    AuthModule,
+    CloudinaryModule,
   ],
   providers: [
     // ← AGREGAR Guards globales
