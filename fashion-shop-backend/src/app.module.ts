@@ -19,7 +19,7 @@ import { RolesGuard } from './guards/roles.guard';
       useFactory: getDatabaseConfig,
     }),
     UsersModule,
-    AuthModule,  // ← AGREGAR
+    AuthModule, // ← AGREGAR
   ],
   providers: [
     // ← AGREGAR Guards globales
@@ -32,6 +32,5 @@ import { RolesGuard } from './guards/roles.guard';
       useClass: RolesGuard,
     },
   ],
-  
 })
 export class AppModule {}

@@ -64,7 +64,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  
+
   // 🔥 Swagger UI disponible en /api/docs
   SwaggerModule.setup('api/docs', app, document, {
     swaggerOptions: {
@@ -87,7 +87,6 @@ async function bootstrap() {
   console.log(`
     🚀 Server running on: http://localhost:${port}/api
     📚 Swagger docs: http://localhost:${port}/api/docs
-    🗄️  Database: ${process.env.DB_HOST}:${process.env.DB_PORT}
   `);
 }
-bootstrap();
+void bootstrap();

@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User, UserRole } from './entities/user.entity';  // ← Importar UserRole también
+import { User, UserRole } from './entities/user.entity'; // ← Importar UserRole también
 
 interface CreateUserDto {
   email: string;
   password: string;
   name: string;
-  role: UserRole;  // ← Cambiar de string a UserRole
+  role: UserRole; // ← Cambiar de string a UserRole
 }
 
 @Injectable()

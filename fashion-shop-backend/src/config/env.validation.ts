@@ -21,7 +21,7 @@ class EnvironmentVariables {
   @IsNumber()
   @Min(1000)
   @Max(65535)
-  PORT: number = 3000;
+  PORT: number = 3001;
 
   // Database
   @IsString()
@@ -66,10 +66,7 @@ class EnvironmentVariables {
   // Frontend
   @IsString()
   FRONTEND_URL!: string;
-
-  
 }
-
 
 export function validate(config: Record<string, unknown>) {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
@@ -89,5 +86,4 @@ export function validate(config: Record<string, unknown>) {
   }
 
   return validatedConfig;
-
 }

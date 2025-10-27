@@ -15,9 +15,9 @@ describe('App (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    
+
     setupTestApp(app);
-    
+
     await app.init();
   }, 60000); // 60 segundos para setup inicial
 
@@ -27,15 +27,11 @@ describe('App (e2e)', () => {
 
   describe('API Configuration', () => {
     it('should have global API prefix', () => {
-      return request(app.getHttpServer())
-        .get('/api')
-        .expect(404); // 404 es correcto, no hay ruta en /api raíz
+      return request(app.getHttpServer()).get('/api').expect(404); // 404 es correcto, no hay ruta en /api raíz
     });
 
     it('should reject requests without API prefix', () => {
-      return request(app.getHttpServer())
-        .get('/')
-        .expect(404);
+      return request(app.getHttpServer()).get('/').expect(404);
     });
   });
 });

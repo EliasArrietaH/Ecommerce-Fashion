@@ -11,8 +11,8 @@ export default registerAs('database', (): TypeOrmModuleOptions => {
   };
 
   const missingVars = Object.entries(requiredEnvVars)
-    .filter(([_, value]) => !value)
-    .map(([key, _]) => key);
+    .filter(([value]) => !value)
+    .map(([key]) => key);
 
   if (missingVars.length > 0) {
     throw new Error(
